@@ -8,3 +8,5 @@ done
 echo "Script has completed `date +%D`"
 echo "Number of users logged in:"
 w -f
+cat /etc/passwd
+cat /etc/group
