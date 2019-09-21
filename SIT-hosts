@@ -1,4 +1,1 @@
-uptime
-date
-hostname
-hostname -I
+Echo "This is working for SIT variable"
