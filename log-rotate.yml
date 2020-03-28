@@ -1,0 +1,32 @@
+---
+- name: logroation policy
+  become: yes
+  become_user: root
+  hosts: all
+  serial: 1
+  tasks:
+  - name: Copy the the syslog & logrotate os6
+    copy:
+      src: "{{ item.src }}"
+      dest: "{{ item.dest }}"
+      mode: 0644
+      group: root
+      owner: root
+      backup: yes
+    with_items:
+      - { src: '/var/playbooks/logroate/os6/logrotate.conf', dest: '/etc/logrotate.conf' }
+      - { src: '/var/playbooks/logroate/os6/syslog', dest: '/etc/logrotate.d/syslog' }
+    when: ansible_distribution_major_version == "6"
+
+  - name: copy the syslog & logrotate os7
+    copy:
+      src: "{{ item.src }}"
+      dest: "{{ item.dest }}"
+      mode: 0644
+      group: root
+      owner: root
+      backup: yes
+    with_items:
+      - { src: '/var/playbooks/logroate/os7/logrotate.conf', dest: '/etc/logrotate.conf' }
+      - { src: '/var/playbooks/logroate/os7/syslog', dest: '/etc/logrotate.d/syslog' }
+    when: ansible_distribution_major_version == "7"
