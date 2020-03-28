@@ -1,2 +1,0 @@
-# TestProject
-Learning with GitHub
