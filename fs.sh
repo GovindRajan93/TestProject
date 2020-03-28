@@ -8,3 +8,4 @@ done
 echo "Script has completed `date +%D`"
 echo "Number of users logged in:"
 w -f
+echo "Ï am testing a new phase"
